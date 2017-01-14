@@ -55,6 +55,7 @@ do
 		echo $NEW_MD5 > $TEX.md5
 		latexdiff $ORIGINAL.tex $TEX.tex > $TEX_DIFF.tex
 		pdflatex $TEX_DIFF.tex
+		pdflatex $TEX.tex
 	fi
 	sleep 1
 done
