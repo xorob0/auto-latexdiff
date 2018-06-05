@@ -3,9 +3,9 @@
 #
 # Defining a few variables...
 #
-TEX_FILE="Latex1"
+TEX_FILE=$1
+LATEXDOC_DIR=`pwd`
 LATEXCMD="/usr/bin/latexdiff"
-LATEXDOC_DIR="/home/xorob0/Documents/LaTeX"
 TEX="$LATEXDOC_DIR/$TEX_FILE"
 ORIGINAL="$LATEXDOC_DIR/.original"
 TEX_DIFF="$LATEXDOC_DIR/diff"
