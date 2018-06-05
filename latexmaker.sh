@@ -10,7 +10,7 @@ LATEXCMD="/usr/bin/xelatex"
 FILE="$DIRECTORY/$FILENAME"
 ORIGINAL="/tmp/Latex_Diff/original.tex"
 DIFF="/tmp/Latex_Diff/diff.tex"
-CHECK=`md5sum $FILE.$EXT`
+CHECK=`md5sum $FILE`
 TIME=1
 
 cp $FILE $ORIGINAL
