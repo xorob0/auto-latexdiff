@@ -6,13 +6,13 @@
 FILENAME=$1
 DIRECTORY=`pwd`
 LATEXDIFFCMD="/usr/bin/latexdiff"
-LATEXCMD="/usr/bin/xelatex"
+LATEXCMD="/usr/bin/xelatex -interaction nonstopmode"
 FILE="$DIRECTORY/$FILENAME"
 ORIGINAL="/tmp/Latex_Diff/original.tex"
 DIFF="/tmp/Latex_Diff/diff.tex"
-CHECK=`md5sum $FILE`
 TIME=1
 
+mkdir -p /tmp/Latex_Diff/
 cp $FILE $ORIGINAL
 
 while true
@@ -23,7 +23,7 @@ do
 	#
 	CHECKNOW=`md5sum $FILE`
 
-	if ! [ $CHECK = $CHECKNOW ]
+	if ! [[ $CHECK = $CHECKNOW ]]
 	then
 		CHECK=$CHECKNOW
 
