@@ -12,8 +12,8 @@ Of course you may want to do the same, but without de differential indications, 
 To stop the script use `CTRL-C` or quit the terminal.
 
 #How it works
-The script perpetually check the md5 of the give file, if it detects a change it will compile the file. It uses the command [latexdiff]{https://github.com/ftilmann/latexdiff/} to generate the differential by comparing the edited file with a cached version.
+The script perpetually check the md5 of the give file, if it detects a change it will compile the file. It uses the command [latexdiff](https://github.com/ftilmann/latexdiff/) to generate the differential by comparing the edited file with a cached version.
 You can guess that it only see the change when the file is saved, if you want to see the changes appears as you type, enable the autosave feature of your text editor.
 
 #Thanks
-ftilmann for [latexdiff]{https://github.com/ftilmann/latexdiff/} 
+ftilmann for [latexdiff](https://github.com/ftilmann/latexdiff/) 
