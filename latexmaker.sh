@@ -3,12 +3,13 @@
 #
 # Defining a few variables...
 #
-TEX_FILE=$1
-LATEXDOC_DIR=`pwd`
+FILENAME=$1
+DIRECTORY=`pwd`
 LATEXCMD="/usr/bin/latexdiff"
-TEX="$LATEXDOC_DIR/$TEX_FILE"
-ORIGINAL="$LATEXDOC_DIR/.original"
-TEX_DIFF="$LATEXDOC_DIR/diff"
+FILE="$DIRECTORY/$FILENAME"
+ORIGINAL="$DIRECTORY/.original"
+TEX_DIFF="$DIRECTORY/diff"
+EXT="tex"
 
 while true
 do
@@ -16,35 +17,35 @@ do
 	#
 	# If original does not exist create one
 	#
-	if ! [ -a $ORIGINAL.tex ]
+	if ! [ -a $ORIGINAL.$EXT ]
 	then
-		cp $TEX.tex $ORIGINAL.tex
-		md5sum $ORIGINAL.tex | awk '{print $1}' > $ORIGINAL.md5
+		cp $FILE.$EXT $ORIGINAL.$EXT
+		md5sum $ORIGINAL.$EXT | awk '{print $1}' > $ORIGINAL.md5
 	fi
 
 	#
 	# If diff pdf does not exist create it
 	#
-	if ! [ -a $TEX_DIFF.tex ]
+	if ! [ -a $TEX_DIFF.$EXT ]
 	then
-		cp $TEX.tex $TEX_DIFF.tex
-		pdflatex $TEX_DIFF.tex
+		cp $FILE.$EXT $TEX_DIFF.$EXT
+		pdflatex $TEX_DIFF.$EXT
 	fi
 
 	#
 	# If the current MD5 does not exist, create it
 	#
-	if ! [ -a $TEX.md5 ]
+	if ! [ -a $FILE.md5 ]
 	then
-		md5sum $TEX.tex | awk '{print $1}' > $TEX.md5
+		md5sum $FILE.$EXT | awk '{print $1}' > $FILE.md5
 	fi
 
 	#
 	# Create and assignate md5 variables
 	#
-	OLD_MD5=$(cat $TEX.md5 | awk '{print $1}')
+	OLD_MD5=$(cat $FILE.md5 | awk '{print $1}')
 #	echo "$OLD_MD5"
-	NEW_MD5=$(md5sum $TEX.tex | awk '{print $1}')
+	NEW_MD5=$(md5sum $FILE.$EXT | awk '{print $1}')
 #	echo "$NEW_MD5"
 
 	#
@@ -52,10 +53,10 @@ do
 	#
 	if ! [ $OLD_MD5 = $NEW_MD5 ]
 	then
-		echo $NEW_MD5 > $TEX.md5
-		latexdiff $ORIGINAL.tex $TEX.tex > $TEX_DIFF.tex
-		pdflatex $TEX_DIFF.tex
-		pdflatex $TEX.tex
+		echo $NEW_MD5 > $FILE.md5
+		latexdiff $ORIGINAL.$EXT $FILE.$EXT > $TEX_DIFF.$EXT
+		pdflatex $TEX_DIFF.$EXT
+		pdflatex $FILE.$EXT
 	fi
 	sleep 1
 done
