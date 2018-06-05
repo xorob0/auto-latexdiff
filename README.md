@@ -3,11 +3,11 @@ This script compile your latex file as you are typing and create a differential 
 #How to use
 To use this script, simply launch this command in a terminal:
 ```
-./Automatic_Latex_Differential.sh __YOUR TEX FILE__
+./Automatic_Latex_Differential.sh YOUR_TEX_FILE
 ```
 Of course you may want to do the same, but without de differential indications, for this use:
 ```
-./Automatic_Latex_Compile.sh __YOUR TEX FILE__
+./Automatic_Latex_Compile.sh YOUR_TEX_FILE
 ```
 To stop the script use `CTRL-C` or quit the terminal.
 
