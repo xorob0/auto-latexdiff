@@ -36,4 +36,5 @@ do
 	test $? -gt 128 && break
 done
 
-rm -rf $TMPDIRECTORY
+rm -Rf $TMPDIRECTORY
+echo "Done"
