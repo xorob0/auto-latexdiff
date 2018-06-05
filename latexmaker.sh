@@ -13,7 +13,7 @@ DIFF="/tmp/Latex_Diff/diff.tex"
 CHECK=`md5sum $FILE.$EXT`
 TIME=1
 
-cp $FILE.$EXT $ORIGINAL.$EXT
+cp $FILE $ORIGINAL
 
 while true
 do
