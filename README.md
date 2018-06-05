@@ -1,7 +1,7 @@
 # Description
 This script compile your latex file as you are typing and create a differential pdf. It can be used to easily spot what you changed in your file because it uses red and blue to mark the modification.
 # How to use
-To use this script, simply launch this command in a terminal:
+To use this script, simply execute this command in a terminal:
 ```
 ./Automatic_Latex_Differential.sh YOUR_TEX_FILE
 ```
