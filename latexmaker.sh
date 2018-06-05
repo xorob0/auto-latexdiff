@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Defining a few variables...
+
 FILENAME=$1
 DIRECTORY=`pwd`
 FILE="$DIRECTORY/$FILENAME"
