@@ -18,7 +18,14 @@ TIME=1
 mkdir -p $TMPDIRECTORY
 cp $FILE $ORIGINAL
 
-while true
+trap printout SIGINT
+printout() {
+	rm -Rf $TMPDIRECTORY
+	echo "Done"
+	exit
+}
+
+while :
 do
 
 	# If the file has changed, change the md5 and create a new diff pdf
@@ -33,8 +40,5 @@ do
 		$LATEXCMD $DIFF --output-directory $DIRECTORY
 	fi
 	sleep $TIME
-	test $? -gt 128 && break
+	test $? -gt 128
 done
-
-rm -Rf $TMPDIRECTORY
-echo "Done"
