@@ -20,9 +20,8 @@ cp $FILE $ORIGINAL
 while true
 do
 
-	#
 	# If the file has changed, change the md5 and create a new diff pdf
-	#
+
 	CHECKNOW=`md5sum $FILE`
 
 	if ! [[ $CHECK = $CHECKNOW ]]
