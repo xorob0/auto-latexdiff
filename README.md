@@ -1,8 +1,19 @@
-Put this script in the same directory as your latex file and edit the variables.
-Lauch it with make loop.
-Open your tex file and the diff.pdf side by side.
+#Description
+This script compile your latex file as you are typing and create a differential pdf. It can be used to easily spot what you changed in your file because it uses red and blue to mark the modification.
+#How to use
+To use this script, simply launch this command in a terminal:
+```
+./Automatic_Latex_Differential.sh __YOUR TEX FILE__
+```
+Of course you may want to do the same, but without de differential indications, for this use:
+```
+./Automatic_Latex_Compile.sh __YOUR TEX FILE__
+```
+To stop the script use `CTRL-C` or quit the terminal.
 
-How it woks :
-It compares the md5 of your file and the last one it generated. If the file are different it generate a new diff.pdf with latexdiff.
+#How it works
+The script perpetually check the md5 of the give file, if it detects a change it will compile the file. It uses the command [latexdiff]{https://github.com/ftilmann/latexdiff/} to generate the differential by comparing the edited file with a cached version.
+You can guess that it only see the change when the file is saved, if you want to see the changes appears as you type, enable the autosave feature of your text editor.
 
-You can use make clean to clean the directory and you can even use it with :!make clean inside vim to reset dff.pdf.
+#Thanks
+ftilmann for [latexdiff]{https://github.com/ftilmann/latexdiff/} 
