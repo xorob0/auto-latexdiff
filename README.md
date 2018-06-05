@@ -5,7 +5,7 @@ To use this script, simply execute this command in a terminal:
 ```
 ./Automatic_Latex_Differential.sh YOUR_TEX_FILE
 ```
-Of course you may want to do the same, but without de differential indications, for this use:
+Of course you may want to do the same but without de differential indications, for this use:
 ```
 ./Automatic_Latex_Compile.sh YOUR_TEX_FILE
 ```
