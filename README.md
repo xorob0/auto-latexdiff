@@ -2,7 +2,7 @@
 
 `auto-latexdiff` compiles your LaTeX file as you are typing and creates a
 differential PDF. It can be used to easily spot what you changed in your file
-because it uses red and blue to mark the modification.
+because it uses red and blue to mark the modifications.
 
 ---
 
